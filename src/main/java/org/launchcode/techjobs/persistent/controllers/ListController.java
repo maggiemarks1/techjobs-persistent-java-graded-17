@@ -48,6 +48,7 @@ public class ListController {
         model.addAttribute("skills",skillRepository.findAll());
 
 
+
         return "list";
     }
 
