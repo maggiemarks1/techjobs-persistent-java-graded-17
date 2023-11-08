@@ -1,6 +1,8 @@
 --Part 1
 -- ID- integer, employee- string, skill- string , name- string
+
 --Part 2
+--write a query to list the names of the employers in St. Louis City
 SELECT name
 FROM employer
 WHERE location = "St. Louis City";

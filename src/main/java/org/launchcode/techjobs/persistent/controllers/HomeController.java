@@ -49,19 +49,17 @@ private EmployerRepository employerRepository;
 
     @PostMapping("add")
     public String processAddJobForm(@ModelAttribute @Valid Job newJob,
-                                       Errors errors, Model model,@RequestParam(defaultValue = "0") int employerId, @RequestParam List<Integer> skills) {
+                                       Errors errors, Model model,@RequestParam(defaultValue = "0")int employerId, @RequestParam (required=false) List<Integer> skills) {
 
         if (errors.hasErrors()) {
-
             model.addAttribute("title", "Add Job");
-
-
             return "add";
         } else {
 
+
             if (skills != null) {
-                List<Skill> skillObjs = (List<Skill>) skillRepository.findAllById(skills);
-                newJob.setSkills(skillObjs);
+                List<Skill> selectedSkills = (List<Skill>) skillRepository.findAllById(skills);
+                newJob.setSkills(selectedSkills);
             }
             jobRepository.save(newJob);
             return "redirect:";
