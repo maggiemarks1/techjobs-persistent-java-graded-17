@@ -1,5 +1,5 @@
 --Part 1
-
+-- ID- integer, employee- string, skill- string , name- string
 --Part 2
 SELECT name
 FROM employer

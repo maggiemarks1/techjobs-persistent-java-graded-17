@@ -21,6 +21,7 @@ public class EmployerController {
     @Autowired
     private EmployerRepository employerRepository;
 
+// index method list employers in database
 @GetMapping("/")
 public String index (Model model){
     model.addAttribute("employers", employerRepository.findAll());
